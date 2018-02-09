@@ -31,7 +31,7 @@ def msg_received(client, server, msg):
             cl = clients[cl]
             server.send_message(cl, msg)
 
-server = WebsocketServer(9001,'0.0.0.0')
+server = WebsocketServer(1234,'0.0.0.0')
 server.set_fn_client_left(client_left)
 server.set_fn_new_client(new_client)
 server.set_fn_message_received(msg_received)
