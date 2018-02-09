@@ -1,4 +1,4 @@
-from .websocket_server import WebsocketServer
+from websocket_server import WebsocketServer
 from threading import Thread
 import threading
 clients = {}
