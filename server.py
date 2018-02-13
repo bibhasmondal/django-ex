@@ -1,9 +1,4 @@
 from websocket_server import WebsocketServer
-from threading import Thread
-import threading
-import os
-ip   = os.environ['OPENSHIFT_PYTHON_IP']
-port = int(os.environ['OPENSHIFT_PYTHON_PORT'])
 clients = {}
 
 def client_left(client, server):
@@ -34,7 +29,7 @@ def msg_received(client, server, msg):
             cl = clients[cl]
             server.send_message(cl, msg)
 
-server = WebsocketServer(port,ip)
+server = WebsocketServer(8080,'0.0.0.0')
 server.set_fn_client_left(client_left)
 server.set_fn_new_client(new_client)
 server.set_fn_message_received(msg_received)
